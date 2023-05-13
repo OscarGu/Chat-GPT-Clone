@@ -25,9 +25,12 @@ if __name__ == "__main__":
   if "logs" not in st.session_state:
     st.session_state.logs = []
 
+  def get_api_key():
+      input_text = st.text_input(label="OpenAI API Key ",  placeholder="Ex: sk-2twmA8tfCb8un4...", key="openai_api_key_input")
+      return input_text
 
+  openai_api_key = get_api_key()
 
-  openai.api_key = "YOUR_API_KEY"
 
   if(title != ""):
     with st.spinner("Generating response..."):
